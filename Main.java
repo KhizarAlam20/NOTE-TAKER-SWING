@@ -2,8 +2,10 @@ package SCD.GUI_TASK.NOTE_TAKER;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Main extends JFrame {
+public class Main extends JFrame implements ActionListener {
     JButton back, next;
 
 
@@ -51,6 +53,7 @@ public class Main extends JFrame {
         next.setBorderPainted(false);
         next.setFont(new Font("RALEWAY", Font.BOLD, 11));
         next.setFocusable(false);
+        next.addActionListener(this);
         next.setBounds(30, 450, 70, 30); // Adjust the position as needed
         image1.add(next);
 
@@ -60,6 +63,7 @@ public class Main extends JFrame {
         back.setBorderPainted(false);
         back.setFont(new Font("RALEWAY", Font.PLAIN, 11));
         back.setFocusable(false);
+        back.addActionListener(this);
         back.setBounds(270, 450, 70, 30); // Adjust the position as needed
         image1.add(back);
 
@@ -70,5 +74,15 @@ public class Main extends JFrame {
 
     public static void main(String[] args) {
         new Main();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == back){
+            System.exit(0);
+        }else if(e.getSource() == next){
+            new dashboard();
+            setVisible(false);
+        }
     }
 }
