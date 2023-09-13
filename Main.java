@@ -7,8 +7,6 @@ import java.awt.event.ActionListener;
 
 public class Main extends JFrame implements ActionListener {
     JButton back, next;
-
-
     Main() {
         setBounds(400, 40, 450, 540);
         setLayout(null);
