@@ -27,62 +27,69 @@ public class dashboard extends JFrame {
         p.add(image1);
 
 
-//        JLabel l = new JLabel("TAKE NOW");
-//        l.setForeground(new Color(236, 255, 112));
-//        l.setFont(new Font("RALEWAY", Font.BOLD, 70));
-//        l.setBounds(20, 50, 400, 200); // Adjust the position as needed
-//        image1.add(l);
+        JLabel l = new JLabel("NOTE NOW");
+        l.setForeground(new Color(0, 245, 159));
+        l.setFont(new Font("RALEWAY", Font.BOLD, 40));
+        l.setBounds(50, -10, 400, 200); // Adjust the position as needed
+        image1.add(l);
 
 
 
         ImageIcon icon = new ImageIcon(ClassLoader.getSystemResource("new.png"));
-        Image icon1 = icon.getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+        Image icon1 = icon.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT);
         ImageIcon icon2 = new ImageIcon(icon1);
 
-
-
         NEW = new JButton("New");
-        NEW.setBounds(112,220,240,60);
+        NEW.setBounds(50,320,150,45);
         NEW.setForeground(new Color(238, 255, 0));
         NEW.setBackground(Color.black);
         NEW.setBorderPainted(false);
         NEW.setIcon(icon2);
-        NEW.setFont(new Font("RALEWAY", Font.BOLD, 35));
+        NEW.setFont(new Font("RALEWAY", Font.BOLD, 25));
         NEW.setFocusable(false);
         image1.add(NEW);
 
 
+        ImageIcon iconn = new ImageIcon(ClassLoader.getSystemResource("open.png"));
+        Image iconnn = iconn.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT);
+        ImageIcon iconnnn = new ImageIcon(iconnn);
         NEW = new JButton("Open");
-        NEW.setBounds(112,220,240,60);
+        NEW.setBounds(260,320,150,45);
         NEW.setForeground(new Color(238, 255, 0));
         NEW.setBackground(Color.black);
         NEW.setBorderPainted(false);
-        NEW.setIcon(icon2);
-        NEW.setFont(new Font("RALEWAY", Font.BOLD, 35));
+        NEW.setIcon(iconnnn);
+        NEW.setFont(new Font("RALEWAY", Font.BOLD, 25));
         NEW.setFocusable(false);
         image1.add(NEW);
 
+
+        ImageIcon Icon = new ImageIcon(ClassLoader.getSystemResource("help.png"));
+        Image Icon1 = Icon.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT);
+        ImageIcon Icon2 = new ImageIcon(Icon1);
 
         NEW = new JButton("Help");
-        NEW.setBounds(112,220,240,60);
+        NEW.setBounds(50,390,150,45);
         NEW.setForeground(new Color(238, 255, 0));
         NEW.setBackground(Color.black);
         NEW.setBorderPainted(false);
-        NEW.setIcon(icon2);
-        NEW.setFont(new Font("RALEWAY", Font.BOLD, 35));
+        NEW.setIcon(Icon2);
+        NEW.setFont(new Font("RALEWAY", Font.BOLD, 25));
         NEW.setFocusable(false);
         image1.add(NEW);
+
 
         NEW = new JButton("Exit");
-        NEW.setBounds(112,220,240,60);
+        NEW.setBounds(260,390,150,45);
         NEW.setForeground(new Color(238, 255, 0));
-        NEW.setBackground(Color.black);
+        NEW.setBackground(new Color(0, 0, 0));
         NEW.setBorderPainted(false);
         NEW.setIcon(icon2);
-        NEW.setFont(new Font("RALEWAY", Font.BOLD, 35));
+        NEW.setFont(new Font("RALEWAY", Font.BOLD, 25));
         NEW.setFocusable(false);
         image1.add(NEW);
 
+        setUndecorated(true);
         setVisible(true);
     }
     public static void main(String[] args) {
