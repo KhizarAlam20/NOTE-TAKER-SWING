@@ -27,10 +27,10 @@ public class dashboard extends JFrame {
         p.add(image1);
 
 
-        JLabel l = new JLabel("NOTE NOW");
+        JLabel l = new JLabel("NOTE YOUR");
         l.setForeground(new Color(0, 245, 159));
-        l.setFont(new Font("RALEWAY", Font.BOLD, 40));
-        l.setBounds(50, -10, 400, 200); // Adjust the position as needed
+        l.setFont(new Font("RALEWAY", Font.BOLD, 50));
+        l.setBounds(50, 20, 400, 200); // Adjust the position as needed
         image1.add(l);
 
 
@@ -40,7 +40,7 @@ public class dashboard extends JFrame {
         ImageIcon icon2 = new ImageIcon(icon1);
 
         NEW = new JButton("New");
-        NEW.setBounds(50,320,150,45);
+        NEW.setBounds(50,390,150,45);
         NEW.setForeground(new Color(238, 255, 0));
         NEW.setBackground(Color.black);
         NEW.setBorderPainted(false);
@@ -54,7 +54,7 @@ public class dashboard extends JFrame {
         Image iconnn = iconn.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT);
         ImageIcon iconnnn = new ImageIcon(iconnn);
         NEW = new JButton("Open");
-        NEW.setBounds(260,320,150,45);
+        NEW.setBounds(260,390,150,45);
         NEW.setForeground(new Color(238, 255, 0));
         NEW.setBackground(Color.black);
         NEW.setBorderPainted(false);
@@ -69,7 +69,7 @@ public class dashboard extends JFrame {
         ImageIcon Icon2 = new ImageIcon(Icon1);
 
         NEW = new JButton("Help");
-        NEW.setBounds(50,390,150,45);
+        NEW.setBounds(50,460,150,45);
         NEW.setForeground(new Color(238, 255, 0));
         NEW.setBackground(Color.black);
         NEW.setBorderPainted(false);
@@ -80,7 +80,7 @@ public class dashboard extends JFrame {
 
 
         NEW = new JButton("Exit");
-        NEW.setBounds(260,390,150,45);
+        NEW.setBounds(260,460,150,45);
         NEW.setForeground(new Color(238, 255, 0));
         NEW.setBackground(new Color(0, 0, 0));
         NEW.setBorderPainted(false);
