@@ -2,9 +2,11 @@ package SCD.GUI_TASK.NOTE_TAKER;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.jar.JarFile;
 
-public class dashboard extends JFrame {
+public class dashboard extends JFrame implements ActionListener {
     JButton NEW,help,exit,open;
 
     dashboard(){
@@ -28,11 +30,28 @@ public class dashboard extends JFrame {
 
 
         JLabel l = new JLabel("NOTE YOUR");
-        l.setForeground(new Color(0, 245, 159));
+        l.setForeground(new Color(238, 255, 0));
         l.setFont(new Font("RALEWAY", Font.BOLD, 50));
         l.setBounds(50, 20, 400, 200); // Adjust the position as needed
         image1.add(l);
 
+        JLabel l2 = new JLabel("NOTES");
+        l2.setForeground(new Color(255, 255, 255));
+        l2.setFont(new Font("RALEWAY", Font.BOLD, 50));
+        l2.setBounds(50, 80, 400, 200); // Adjust the position as needed
+        image1.add(l2);
+
+        JLabel l3 = new JLabel("IN");
+        l3.setForeground(new Color(238, 255, 0));
+        l3.setFont(new Font("RALEWAY", Font.BOLD, 50));
+        l3.setBounds(50, 130, 400, 200); // Adjust the position as needed
+        image1.add(l3);
+
+        JLabel l4 = new JLabel("EASY STEPS");
+        l4.setForeground(new Color(255, 255, 255));
+        l4.setFont(new Font("RALEWAY", Font.BOLD, 50));
+        l4.setBounds(50, 180, 400, 200); // Adjust the position as needed
+        image1.add(l4);
 
 
         ImageIcon icon = new ImageIcon(ClassLoader.getSystemResource("new.png"));
@@ -45,7 +64,7 @@ public class dashboard extends JFrame {
         NEW.setBackground(Color.black);
         NEW.setBorderPainted(false);
         NEW.setIcon(icon2);
-        NEW.setFont(new Font("RALEWAY", Font.BOLD, 25));
+        NEW.setFont(new Font("RALEWAY", Font.BOLD, 18));
         NEW.setFocusable(false);
         image1.add(NEW);
 
@@ -59,7 +78,7 @@ public class dashboard extends JFrame {
         NEW.setBackground(Color.black);
         NEW.setBorderPainted(false);
         NEW.setIcon(iconnnn);
-        NEW.setFont(new Font("RALEWAY", Font.BOLD, 25));
+        NEW.setFont(new Font("RALEWAY", Font.BOLD, 18));
         NEW.setFocusable(false);
         image1.add(NEW);
 
@@ -74,7 +93,7 @@ public class dashboard extends JFrame {
         NEW.setBackground(Color.black);
         NEW.setBorderPainted(false);
         NEW.setIcon(Icon2);
-        NEW.setFont(new Font("RALEWAY", Font.BOLD, 25));
+        NEW.setFont(new Font("RALEWAY", Font.BOLD, 18));
         NEW.setFocusable(false);
         image1.add(NEW);
 
@@ -85,7 +104,7 @@ public class dashboard extends JFrame {
         NEW.setBackground(new Color(0, 0, 0));
         NEW.setBorderPainted(false);
         NEW.setIcon(icon2);
-        NEW.setFont(new Font("RALEWAY", Font.BOLD, 25));
+        NEW.setFont(new Font("RALEWAY", Font.BOLD, 18));
         NEW.setFocusable(false);
         image1.add(NEW);
 
@@ -94,5 +113,19 @@ public class dashboard extends JFrame {
     }
     public static void main(String[] args) {
         new dashboard();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == NEW){
+
+        }else if(e.getSource() == help){
+
+        }else if(e.getSource() == open){
+
+        }else if(e.getSource() == exit){
+            setVisible(false);
+            new Main();
+        }
     }
 }
