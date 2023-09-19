@@ -1,9 +1,11 @@
 package SCD.GUI_TASK.NOTE_TAKER;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.*;
 import java.util.jar.JarFile;
 
 public class dashboard extends JFrame implements ActionListener {
@@ -64,6 +66,7 @@ public class dashboard extends JFrame implements ActionListener {
         NEW.setBackground(Color.black);
         NEW.setBorderPainted(false);
         NEW.setIcon(icon2);
+        NEW.addActionListener(this);
         NEW.setFont(new Font("RALEWAY", Font.BOLD, 18));
         NEW.setFocusable(false);
         image1.add(NEW);
@@ -72,41 +75,44 @@ public class dashboard extends JFrame implements ActionListener {
         ImageIcon iconn = new ImageIcon(ClassLoader.getSystemResource("open.png"));
         Image iconnn = iconn.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT);
         ImageIcon iconnnn = new ImageIcon(iconnn);
-        NEW = new JButton("Open");
-        NEW.setBounds(260,390,150,45);
-        NEW.setForeground(new Color(238, 255, 0));
-        NEW.setBackground(Color.black);
-        NEW.setBorderPainted(false);
-        NEW.setIcon(iconnnn);
-        NEW.setFont(new Font("RALEWAY", Font.BOLD, 18));
-        NEW.setFocusable(false);
-        image1.add(NEW);
+        open = new JButton("Open");
+        open.setBounds(260,390,150,45);
+        open.setForeground(new Color(238, 255, 0));
+        open.setBackground(Color.black);
+        open.setBorderPainted(false);
+        open.setIcon(iconnnn);
+        open.addActionListener(this);
+        open.setFont(new Font("RALEWAY", Font.BOLD, 18));
+        open.setFocusable(false);
+        image1.add(open);
 
 
         ImageIcon Icon = new ImageIcon(ClassLoader.getSystemResource("help.png"));
         Image Icon1 = Icon.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT);
         ImageIcon Icon2 = new ImageIcon(Icon1);
 
-        NEW = new JButton("Help");
-        NEW.setBounds(50,460,150,45);
-        NEW.setForeground(new Color(238, 255, 0));
-        NEW.setBackground(Color.black);
-        NEW.setBorderPainted(false);
-        NEW.setIcon(Icon2);
-        NEW.setFont(new Font("RALEWAY", Font.BOLD, 18));
-        NEW.setFocusable(false);
-        image1.add(NEW);
+        help = new JButton("Help");
+        help.setBounds(50,460,150,45);
+        help.setForeground(new Color(238, 255, 0));
+        help.setBackground(Color.black);
+        help.setBorderPainted(false);
+        help.setIcon(Icon2);
+        help.addActionListener(this);
+        help.setFont(new Font("RALEWAY", Font.BOLD, 18));
+        help.setFocusable(false);
+        image1.add(help);
 
 
-        NEW = new JButton("Exit");
-        NEW.setBounds(260,460,150,45);
-        NEW.setForeground(new Color(238, 255, 0));
-        NEW.setBackground(new Color(0, 0, 0));
-        NEW.setBorderPainted(false);
-        NEW.setIcon(icon2);
-        NEW.setFont(new Font("RALEWAY", Font.BOLD, 18));
-        NEW.setFocusable(false);
-        image1.add(NEW);
+        exit = new JButton("Exit");
+        exit.setBounds(260,460,150,45);
+        exit.setForeground(new Color(238, 255, 0));
+        exit.setBackground(new Color(0, 0, 0));
+        exit.setBorderPainted(false);
+        exit.setIcon(icon2);
+        exit.addActionListener(this);
+        exit.setFont(new Font("RALEWAY", Font.BOLD, 18));
+        exit.setFocusable(false);
+        image1.add(exit);
 
         setUndecorated(true);
         setVisible(true);
@@ -118,10 +124,36 @@ public class dashboard extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == NEW){
-
+                new NewNotes();
         }else if(e.getSource() == help){
-
+                new HelpClass();
         }else if(e.getSource() == open){
+            setVisible(false);
+            OpenNotes o = new OpenNotes();
+//            new OpenNotes();
+
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.setAcceptAllFileFilterUsed(false);
+            FileNameExtensionFilter restrict = new FileNameExtensionFilter("Only .txt files", "txt");
+            fileChooser.addChoosableFileFilter(restrict);
+            int action = fileChooser.showOpenDialog(this);
+
+            if (action != JFileChooser.APPROVE_OPTION) {
+                return;
+            } else {
+                File files = fileChooser.getSelectedFile();
+
+                try {
+                    BufferedReader br = new BufferedReader(new FileReader(files));
+                    try {
+                        o.area.read(br, null);
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                } catch (FileNotFoundException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
 
         }else if(e.getSource() == exit){
             setVisible(false);
